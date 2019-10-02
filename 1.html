@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./stlye.css">
+</head>
+<body>
+    <div>
+        <form method="POST" action="1.html">
+            <span>Rows:</span>
+            <input type="number" id="rows" name="rows" >
+            <span>Columns:</span>
+            <input type="number" id="columns" name="columns">
+            <input type="button" id="drawButton" value="Draw">
+        </form>
+    </div>
+    <div>
+        <table style="width:500px; height: 200px;">
+            <thead id="thead">
+                
+            </thead>
+
+            <tbody id="tbody" style="height:200px;">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+    window.onload = function(){
+
+        $(document).on('click', '#drawButton', function(){
+            var rows = document.getElementById("rows").value
+            var colums = document.getElementById("columns").value
+            var thead = document.getElementById('thead') 
+            var theadTop = document.getElementById('theadTop')
+            createThead(colums);
+            // createTheadTop(colums);
+            var tbody = document.getElementById('tbody')
+            createTbody(rows, colums);
+            $("th").css("width", "116px");
+            $("td").css("width", "116px");
+        })
+
+        function createThead(a){
+            var Tr = document.createElement('tr');
+            for(var i=0; i<a; i++){
+            var Th= document.createElement('th');
+            var ThName = 'H'+(i+1);
+            Th.innerHTML = ThName;
+            Tr.appendChild(Th);
+            }
+            thead.innerHTML = '';
+            thead.appendChild(Tr);
+        }
+
+
+
+        function createTbody(R,C){
+            tbody.innerHTML = '';
+            for(var j=0; j<R; j++){
+                var Tr = document.createElement('tr');
+                for(var i=0; i<C; i++){
+                    var Td= document.createElement('td');
+                    var Name = 'Row' + (j+1)+'Column'+(i+1);
+                    Td.innerHTML = Name;
+                    Tr.appendChild(Td);
+                }
+            
+            tbody.appendChild(Tr);
+            }
+        }
+
+
+        }    
+    </script>
+</body>
+    
+</html>
+

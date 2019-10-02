@@ -1,0 +1,37 @@
+@charset 'utf-8';
+*{
+    padding:0;
+}
+
+table, tbody, thead{
+    display: block;
+}
+table{
+    overflow:auto;
+    overflow-y:hidden;
+}
+
+#thead tr{
+    background-color:aquamarine;
+}
+
+#tbody tr:nth-child(2n){
+    background-color: lightblue;
+}
+
+tbody{
+    overflow: auto;
+    overflow-x:hidden;
+}
+
+th, td{
+    width:116px;
+    font-size:5px;
+    /* white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis; */
+};
+
+td{
+    overflow: hidden;
+}
